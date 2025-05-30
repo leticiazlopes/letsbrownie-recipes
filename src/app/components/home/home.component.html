@@ -1,15 +1,15 @@
 <main>
-  <section class="bg-[#f1f1f1] p-10">
+  <section class="bg-[#f1f1f1] pl-20">
     <div class="container flex flex-col lg:flex-row items-center py-20 gap-10">
       <div class="flex-1 order-2 lg:order-1 text-center lg:text-left">
         <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 text-balance">
-          Descruba as receitas da sua doceria favorita :)
+          Agora você pode fazer o seu próprio Let's Brownie :)
         </h1>
         <p class="text-xl lg:text-2xl mb-8 text-balance">
-          Discover recipes helping you to find the easiest way to cook.
+          Descubra as receitas da sua doceria favorita.
         </p>
-        <button class="px-4 py-2 text-white self-start bg-black rounded-md text-lg cursor-pointer">
-          Browse recipes
+        <button id="button" class="px-4 py-2 text-white self-start bg-black rounded-md text-lg cursor-pointer">
+          Buscar receitas
         </button>
       </div>
       <div class="flex-1 order-1 lg:order-2">
@@ -23,19 +23,17 @@
     <p class="text-lg lg:text-xl mb-8">Check out our most popular recipes!</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
-      <div
-        *ngFor="let recipe of data?.recipes"
-        class="flex flex-col shadow rounded-md bg-white"
+      <div        class="flex flex-col shadow rounded-md bg-white"
       >
         <img
-          [src]="recipe.image"
+          src="/imgs/brownies_tradicional.jpg"
           alt="Recipe Image"
           class="rounded-t-md w-full h-48 object-cover"
         />
 
         <div class="flex flex-col py-6 px-4 flex-1">
           <p class="text-xl lg:text-2xl font-semibold mb-2">
-            {{ recipe.name }}
+            {{ 'Oi' }}
           </p>
 
           <div class="font-normal w-full bg-white/80 flex gap-6 flex-wrap text-lg lg:text-xl mb-4 mt-auto">
@@ -47,17 +45,17 @@
 
             <div class="flex items-center gap-1">
               <img src="/assets/icons/clock.svg" alt="Time" class="w-5 h-5" />
-              <span>{{ recipe.cookTimeMinutes }} mins</span>
+              <span>{{ 'oi' }} mins</span>
             </div>
 
             <div class="flex items-center gap-1">
               <img src="/assets/icons/fire.svg" alt="Calories" class="w-5 h-5" />
-              <span>{{ recipe.caloriesPerServing }} cal</span>
+              <span>{{ 'oi' }} cal</span>
             </div>
 
             <div class="flex items-center gap-1">
               <img src="/assets/icons/star.svg" alt="Rating" class="w-5 h-5" />
-              <span>{{ recipe.rating }} {{ recipe.review }}</span>
+              <span>{{ 'oi' }} {{ 'oi' }}</span>
             </div>
           </div>
         </div>
