@@ -1,0 +1,56 @@
+<div class="flex flex-col max-w-screen-lg container py-20">
+  <!-- Header -->
+  <div class="flex flex-col mb-6">
+    <h2 class="text-5xl mb-4 font-semibold"></h2>
+    <div class="flex gap-4 text-xl mb-6">
+      <div class="flex items-center gap-1">
+      </div>
+      <div class="flex items-center gap-1">
+      </div>
+      <div class="flex items-center gap-1">
+      </div>
+    </div>
+    <hr />
+  </div>
+
+  <!-- Image -->
+  <img
+    class="w-full max-h-[500px] object-cover rounded-md shadow-sm mb-12"
+    alt=""
+  />
+
+  <!-- Ingredients -->
+  <div class="mb-8">
+    <h2 class="text-3xl font-semibold mb-4">Ingredients</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-lg">
+      <li *ngFor="let ingredient of data?.ingredients; let i = index">
+        <label class="flex gap-2 items-center">
+          <input
+            type="checkbox"
+            class="hidden peer"
+            [id]="'ingredient-'+i"
+          />
+          <div
+            class="relative w-6 h-6 rounded-full border-2 border-black-500 flex items-center justify-center"
+            ></div>
+            {{ ingredient }}
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Instructions -->
+  <div>
+    <h2 class="text-3xl font-medium mb-4">Instructions</h2>
+    <ul class="flex flex-col text-lg gap-4">
+      <li *ngFor="let instruction of data?.instructions; let idx = index" class="flex gap-2">
+        <div
+          class="flex items-center justify-center bg-black w-7 h-7 rounded-full text-white text-sm"
+        >
+          {{ idx + 1 }}
+        </div>
+        <div class="flex-1">{{ instruction }}</div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,3 +1,13 @@
 <main>
-  <app-home></app-home>
-</main>
+  <nav class="flex items-center w-full p-5">
+    <a routerLink="/" class="flex gap-2 items-center">
+      <img width="80" src="/logo.png" alt="Logo" />
+      <span class="text-1xl font-bold">Let's Recipe</span>
+    </a>
+    <div class="flex items-center gap-6 ml-auto text-1xl capitalize">
+      <a routerLink="/home" class="font-bold">Home</a>
+      <a routerLink="/about" class="font-bold">About</a>
+    </div>
+  </nav>
+</main> 
+<router-outlet></router-outlet>

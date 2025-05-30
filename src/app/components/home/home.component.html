@@ -1,29 +1,67 @@
-<header class="py-4 border-b">
-    <nav class="flex container items-center">
-        <a src="/" class="flex gap-1 items center">
-            <img width="56px" densities="x1" src="/logo.png" format="webp" alt="" />
-            <span class="text-3x1 font-bold">Let's Recipe</span>
-        </a>
-        <ul class="flex items-center gap-6 ml-auto text-xl font-bold capitalize">
-        <li>
-          <a to="/">Home</a>
-        </li>
-        <li>
-          <a src="/about">About</a>
-        </li>
-        </ul>
-        </nav>
-        </header>
+<main>
+  <section class="bg-[#f1f1f1] p-10">
+    <div class="container flex flex-col lg:flex-row items-center py-20 gap-10">
+      <div class="flex-1 order-2 lg:order-1 text-center lg:text-left">
+        <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 text-balance">
+          Descruba as receitas da sua doceria favorita :)
+        </h1>
+        <p class="text-xl lg:text-2xl mb-8 text-balance">
+          Discover recipes helping you to find the easiest way to cook.
+        </p>
+        <button class="px-4 py-2 text-white self-start bg-black rounded-md text-lg cursor-pointer">
+          Browse recipes
+        </button>
+      </div>
+      <div class="flex-1 order-1 lg:order-2">
+        <img src="/imgs/brownies_tradicional.jpg" class="w-full max-w-md mx-auto rounded-lg object-cover" />
+    </div>
+    </div>
+  </section>
 
-<section class="container">
-    <h1 class="text-4xl font-bold text-center my-8">Receitas</h1>
-    <p class="text-center text-lg mb-8">Aqui estão algumas receitas deliciosas para você experimentar!</p>
-</section>
-<section class="cards-receitas">
-    <app-cards></app-cards>
-    <app-cards></app-cards>
-    <app-cards></app-cards>
-    <app-cards></app-cards>
+  <section id="recipes" class="py-20 px-4 max-w-7xl mx-auto">
+    <h2 class="text-3xl lg:text-5xl mb-2">Discover, Create, Share</h2>
+    <p class="text-lg lg:text-xl mb-8">Check out our most popular recipes!</p>
 
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
+      <div
+        *ngFor="let recipe of data?.recipes"
+        class="flex flex-col shadow rounded-md bg-white"
+      >
+        <img
+          [src]="recipe.image"
+          alt="Recipe Image"
+          class="rounded-t-md w-full h-48 object-cover"
+        />
 
-</section>
+        <div class="flex flex-col py-6 px-4 flex-1">
+          <p class="text-xl lg:text-2xl font-semibold mb-2">
+            {{ recipe.name }}
+          </p>
+
+          <div class="font-normal w-full bg-white/80 flex gap-6 flex-wrap text-lg lg:text-xl mb-4 mt-auto">
+            <a
+              class="px-4 py-2 text-white bg-black rounded-md"
+            >
+              View
+            </a>
+
+            <div class="flex items-center gap-1">
+              <img src="/assets/icons/clock.svg" alt="Time" class="w-5 h-5" />
+              <span>{{ recipe.cookTimeMinutes }} mins</span>
+            </div>
+
+            <div class="flex items-center gap-1">
+              <img src="/assets/icons/fire.svg" alt="Calories" class="w-5 h-5" />
+              <span>{{ recipe.caloriesPerServing }} cal</span>
+            </div>
+
+            <div class="flex items-center gap-1">
+              <img src="/assets/icons/star.svg" alt="Rating" class="w-5 h-5" />
+              <span>{{ recipe.rating }} {{ recipe.review }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
