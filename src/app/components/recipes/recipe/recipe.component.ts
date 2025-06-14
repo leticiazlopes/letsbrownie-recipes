@@ -1,6 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import RouterLink from '@angular/router';
 import { NgIf, NgFor } from '@angular/common';
 import data from '../../../../../public/assets/data.json';
 
@@ -8,7 +7,7 @@ import data from '../../../../../public/assets/data.json';
   selector: 'app-recipe',
   standalone: true,
   templateUrl: './recipe.component.html',
-  imports: [NgIf, NgFor, RouterLink],
+  imports: [NgIf, NgFor],
   styleUrls: ['./recipe.component.css'],
 })
 export class RecipeComponent implements OnInit {
