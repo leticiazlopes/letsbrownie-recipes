@@ -1,13 +1,13 @@
 <main>
-  <nav class="flex items-center w-full px-20">
-    <a routerLink="/" class="flex px-5 gap-2 items-center">
+  <nav class="relative z-50 flex items-center w-full px-20 py-4 bg-white shadow">
+    <a routerLink="/" class="flex items-center gap-2">
       <img width="80" src="/logo.png" alt="Logo" />
-      <span class="text-1xl font-bold">Let's Recipe</span>
+      <span class="text-xl font-bold hover:underline">Let's Recipe</span>
     </a>
-    <div class="px-10 flex items-center gap-6 ml-auto text-1xl capitalize">
-      <a routerLink="/home" class="font-bold">Home</a>
-      <a routerLink="/about" class="font-bold">About</a>
+    <div class="px-10 flex items-center gap-6 ml-auto text-xl capitalize">
+      <a routerLink="/" class="font-bold hover:underline">Home</a>
+      <a routerLink="/cards" class="font-bold hover:underline">Receitas</a>
     </div>
   </nav>
-</main> 
 <router-outlet></router-outlet>
+</main>

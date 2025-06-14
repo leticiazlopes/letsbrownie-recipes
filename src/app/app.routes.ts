@@ -4,6 +4,6 @@ import { RecipeComponent } from './components/recipes/recipe/recipe.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'recipes', component: RecipeComponent}
+    {path: 'recipes/:id', component: RecipeComponent}
 ];
     

@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "name": "Bolo de Chocolate",
+    "ingredients": ["Farinha", "Ovos", "Chocolate"],
+    "instructions": ["Misture tudo", "Asse por 40 minutos"],
+    "image": "../imgs/brownies_tradicional.jpg",
+    "cookTimeMinutes": 40,
+    "caloriesPerServing": 300,
+    "rating": 4.8,
+    "reviewCount": 24
+  },
+  {
+    "id": 2,
+    "name": "Panqueca",
+    "ingredients": ["Farinha", "Leite", "Ovos"],
+    "instructions": ["Misture", "Frite na frigideira"],
+    "image": "../imgs/brownies_tradicional.jpg",
+    "cookTimeMinutes": 15,
+    "caloriesPerServing": 150,
+    "rating": 4.5,
+    "reviewCount": 12
+  }
+]
