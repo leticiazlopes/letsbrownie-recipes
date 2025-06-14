@@ -18,48 +18,44 @@
     </div>
   </section>
 
-  <section id="recipes" class="py-20 px-4 max-w-7xl mx-auto">
-    <h2 class="text-3xl lg:text-5xl mb-2">Descubra, crie e compartilhe.</h2>
-    <p class="text-lg lg:text-xl mb-8">Conheça nossas melhores receitas!</p>
+<section id="recipes" class="py-20 px-4 max-w-7xl mx-auto">
+  <h2 class="text-3xl lg:text-5xl mb-2">Descubra, crie e compartilhe.</h2>
+  <p class="text-lg lg:text-xl mb-8">Conheça nossas melhores receitas!</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
-      <div        class="flex flex-col shadow rounded-md bg-white"
-      >
-        <img
-          src="/imgs/brownies_tradicional.jpg"
-          alt="Recipe Image"
-          class="rounded-t-md w-full h-48 object-cover"
-        />
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
+    <div class="flex flex-col shadow rounded-md bg-white" *ngIf="recipe()">
+      <img
+        [src]="recipe().image"
+        alt="Recipe Image"
+        class="rounded-t-md w-full h-48 object-cover"
+      />
 
-        <div id="card" class="flex flex-col py-6 px-4 flex-1">
-          <p class="text-xl lg:text-2xl font-semibold mb-2">
-            {{ 'Oi' }}
-          </p>
+      <div id="card" class="flex flex-col py-6 px-4 flex-1">
+        <p class="text-xl lg:text-2xl font-semibold mb-2">
+          {{ recipe().name }}
+        </p>
 
-          <div class="font-normal w-full bg-white/80 flex gap-6 flex-wrap text-lg lg:text-xl mb-4 mt-auto">
-            <a id="buttonView"
-              class="px-4 py-2 text-white bg-black rounded-md"
-            >
-              View
-            </a>
+        <div class="font-normal w-full bg-white/80 flex gap-6 flex-wrap text-lg lg:text-xl mb-4 mt-auto">
+          <a id="buttonView" class="px-4 py-2 text-white bg-black rounded-md">
+            View
+          </a>
 
-            <div class="flex items-center gap-1">
-              <img src="/assets/icons/clock.svg" alt="Time" class="w-5 h-5" />
-              <span>{{ 'oi' }} mins</span>
-            </div>
+          <div class="flex items-center gap-1">
+            <img src="/assets/icons/clock.svg" alt="Time" class="w-5 h-5" />
+            <span>{{ recipe().cookTimeMinutes }} mins</span>
+          </div>
 
-            <div class="flex items-center gap-1">
-              <img src="/assets/icons/fire.svg" alt="Calories" class="w-5 h-5" />
-              <span>{{ 'oi' }} cal</span>
-            </div>
+          <div class="flex items-center gap-1">
+            <img src="/assets/icons/fire.svg" alt="Calories" class="w-5 h-5" />
+            <span>{{ recipe().caloriesPerServing }} cal</span>
+          </div>
 
-            <div class="flex items-center gap-1">
-              <img src="/assets/icons/star.svg" alt="Rating" class="w-5 h-5" />
-              <span>{{ 'oi' }} {{ 'oi' }}</span>
-            </div>
+          <div class="flex items-center gap-1">
+            <img src="/assets/icons/star.svg" alt="Rating" class="w-5 h-5" />
+            <span>{{ recipe().rating }}/5</span>
           </div>
         </div>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
