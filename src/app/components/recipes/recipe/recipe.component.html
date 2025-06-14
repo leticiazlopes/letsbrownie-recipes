@@ -1,19 +1,19 @@
-<div id="all" class="flex flex-col max-w-screen-lg container py-20 mx-auto" *ngIf="recipe; else loading">
+<div id="all" class="flex flex-col max-w-screen-lg container py-20 mx-auto" *ngIf="recipe(); else loading">
   <!-- Header -->
   <div class="flex flex-col mb-6">
-    <h2 class="text-5xl mb-4 font-semibold">{{ recipe.name }}</h2>
+    <h2 class="text-5xl mb-4 font-semibold">{{ recipe().name }}</h2>
     <div class="flex gap-4 text-xl mb-6">
       <div class="flex items-center gap-1">
         <img src="/icons/clock.svg" alt="Tempo" class="text-white w-4 h-6" />
-        <span>{{ recipe.cookTimeMinutes }} mins</span>
+        <span>{{ recipe().cookTimeMinutes }} mins</span>
       </div>
       <div class="flex items-center gap-1">
         <img src="/icons/fire.svg" alt="Calorias" class="w-4 h-6" />
-        <span>{{ recipe.caloriesPerServing }} cal</span>
+        <span>{{ recipe().caloriesPerServing }} cal</span>
       </div>
       <div class="flex items-center gap-1">
         <img src="/icons/star-fill.svg" alt="Avaliação" class="w-4 h-6" />
-        <span>{{ recipe.rating }}/5</span>
+        <span>{{ recipe().rating }}/5</span>
       </div>
     </div>
     <hr />
@@ -21,37 +21,36 @@
 
   <!-- Image -->
   <img
-    [src]="recipe.image"
-    alt="{{ recipe.name }}"
-    class="w-full max-h-[500px] object-cover rounded-md shadow-sm mb-12 "
+    [src]="recipe().image"
+    [alt]="recipe().name"
+    class="w-full max-h-[500px] object-cover rounded-md shadow-sm mb-12"
   />
 
-<!-- Ingredients -->
-<div class="mb-8">
-  <h2 class="text-3xl font-semibold mb-4">Ingredientes</h2>
-  <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-lg">
-    <li *ngFor="let ingredient of recipe.ingredients; let i = index">
-      <label
-        class="flex items-center gap-3 w-full px-3 py-2 rounded-md border border-gray-400 hover:bg-black/10 cursor-pointer transition-colors"
-        [for]="'ingredient-' + i"
-      >
-        <input
-          type="checkbox"
-          class="w-5 h-5 text-black accent-black"
-          [id]="'ingredient-' + i"
-        />
-        <span>{{ ingredient }}</span>
-      </label>
-    </li>
-  </ul>
-</div>
-
+  <!-- Ingredients -->
+  <div class="mb-8">
+    <h2 class="text-3xl font-semibold mb-4">Ingredientes</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-lg">
+      <li *ngFor="let ingredient of recipe().ingredients; let i = index">
+        <label
+          class="flex items-center gap-3 w-full px-3 py-2 rounded-md border border-gray-400 hover:bg-black/10 cursor-pointer transition-colors"
+          [for]="'ingredient-' + i"
+        >
+          <input
+            type="checkbox"
+            class="w-5 h-5 text-black accent-black"
+            [id]="'ingredient-' + i"
+          />
+          <span>{{ ingredient }}</span>
+        </label>
+      </li>
+    </ul>
+  </div>
 
   <!-- Instructions -->
   <div>
     <h2 class="text-3xl font-medium mb-4">Instruções</h2>
     <ul class="flex flex-col text-lg gap-4">
-      <li *ngFor="let instruction of recipe.instructions; let idx = index" class="flex gap-2">
+      <li *ngFor="let instruction of recipe().instructions; let idx = index" class="flex gap-2">
         <div
           class="flex items-center justify-center bg-black w-7 h-7 rounded-full text-white text-sm select-none"
         >
