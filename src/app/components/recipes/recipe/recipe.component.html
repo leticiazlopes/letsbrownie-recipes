@@ -1,46 +1,46 @@
 <div id="all" class="flex flex-col max-w-screen-lg container py-20 mx-auto" *ngIf="recipe(); else loading">
   <!-- Header -->
-  <div class="flex flex-col mb-6">
-    <h2 class="text-5xl mb-4 font-semibold">{{ recipe().name }}</h2>
-    <div class="flex gap-4 text-xl mb-6">
-      <div class="flex items-center gap-1">
-        <img src="/icons/clock.svg" alt="Tempo" class="text-white w-4 h-6" />
+  <div class="flex flex-col mb-10">
+    <h2 class="text-5xl font-extrabold mb-4 text-gray-900 dark:text-gray-100">{{ recipe().name }}</h2>
+    <div class="flex flex-wrap gap-6 text-lg text-gray-700 dark:text-gray-300 mb-6">
+      <div class="flex items-center gap-2">
+        <img src="/icons/clock.svg" alt="Tempo" class="w-5 h-5" />
         <span>{{ recipe().cookTimeMinutes }} mins</span>
       </div>
-      <div class="flex items-center gap-1">
-        <img src="/icons/fire.svg" alt="Calorias" class="w-4 h-6" />
+      <div class="flex items-center gap-2">
+        <img src="/icons/fire.svg" alt="Calorias" class="w-5 h-5" />
         <span>{{ recipe().caloriesPerServing }} cal</span>
       </div>
-      <div class="flex items-center gap-1">
-        <img src="/icons/star-fill.svg" alt="Avaliação" class="w-4 h-6" />
+      <div class="flex items-center gap-2">
+        <img src="/icons/star-fill.svg" alt="Avaliação" class="w-5 h-5" />
         <span>{{ recipe().rating }}/5</span>
       </div>
     </div>
-    <hr />
+    <hr class="border-[#c3a4f4] dark:border-[#c3a4f4]" />
   </div>
 
   <!-- Image -->
   <img
     [src]="recipe().image"
     [alt]="recipe().name"
-    class="w-full max-h-[500px] object-cover rounded-md shadow-sm mb-12"
+    class="w-full max-h-[500px] object-cover rounded-xl shadow-lg mb-14"
   />
 
   <!-- Ingredients -->
-  <div class="mb-8">
-    <h2 class="text-3xl font-semibold mb-4">Ingredientes</h2>
-    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-lg">
+  <div class="mb-12">
+    <h2 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-gray-100">Ingredientes</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
       <li *ngFor="let ingredient of recipe().ingredients; let i = index">
         <label
-          class="flex items-center gap-3 w-full px-3 py-2 rounded-md border border-gray-400 hover:bg-black/10 cursor-pointer transition-colors"
+          class="flex items-center gap-4 w-full px-4 py-3 rounded-lg border border-[#c3a4f4] hover:bg-[#c3a4f4]/20 cursor-pointer transition-colors"
           [for]="'ingredient-' + i"
         >
           <input
             type="checkbox"
-            class="w-5 h-5 text-black accent-black"
+            class="w-6 h-6 text-[#c3a4f4] accent-[#c3a4f4]"
             [id]="'ingredient-' + i"
           />
-          <span>{{ ingredient }}</span>
+          <span class="text-gray-800 dark:text-gray-200 font-medium">{{ ingredient }}</span>
         </label>
       </li>
     </ul>
@@ -48,20 +48,20 @@
 
   <!-- Instructions -->
   <div>
-    <h2 class="text-3xl font-medium mb-4">Instruções</h2>
-    <ul class="flex flex-col text-lg gap-4">
-      <li *ngFor="let instruction of recipe().instructions; let idx = index" class="flex gap-2">
+    <h2 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-gray-100">Instruções</h2>
+    <ul class="flex flex-col text-lg gap-6">
+      <li *ngFor="let instruction of recipe().instructions; let idx = index" class="flex gap-5">
         <div
-          class="flex items-center justify-center bg-black w-7 h-7 rounded-full text-white text-sm select-none"
+          class="flex items-center justify-center bg-[#c3a4f4] w-9 h-9 rounded-full text-white text-lg font-semibold select-none shadow-md"
         >
           {{ idx + 1 }}
         </div>
-        <div class="flex-1">{{ instruction }}</div>
+        <p class="flex-1 text-gray-800 dark:text-gray-300 leading-relaxed">{{ instruction }}</p>
       </li>
     </ul>
   </div>
 </div>
 
 <ng-template #loading>
-  <p class="text-center text-xl py-20">Carregando receita...</p>
+  <p class="text-center text-xl py-20 text-gray-600 dark:text-gray-400 italic">Carregando receita...</p>
 </ng-template>

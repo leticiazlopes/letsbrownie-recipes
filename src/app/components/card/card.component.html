@@ -1,0 +1,33 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let recipe of recipes" class="flex flex-col shadow rounded-md bg-white">
+        <img
+          [src]="recipe.image"
+          alt="{{ recipe.name }}"
+          class="rounded-t-md w-full h-48 object-cover"
+        />
+        <div class="flex flex-col py-6 px-4 flex-1">
+          <p class="text-xl lg:text-2xl font-semibold mb-2">{{ recipe.name }}</p>
+
+          <div class="font-normal w-full bg-white/80 flex gap-6 flex-wrap text-lg lg:text-xl mb-4 mt-auto">
+            <a [routerLink]="['recipes', recipe.id]" id="button" class="px-4 py-2 text-white bg-[#c3a4f4] rounded-md cursor-pointer">
+              Visualizar
+            </a>
+
+            <div class="flex items-center gap-1">
+              <img src="/icons/clock.svg" alt="Time" class="w-3 h-3" />
+              <span>{{ recipe.cookTimeMinutes }} mins</span>
+            </div>
+
+            <div class="flex items-center gap-1">
+              <img src="/icons/fire.svg" alt="Calories" class="w-3 h-3" />
+              <span>{{ recipe.caloriesPerServing }} cal</span>
+            </div>
+
+            <div class="flex items-center gap-1">
+              <img src="/icons/star-fill.svg" alt="Rating" class="w-3 h-3" />
+              <span>{{ recipe.rating }}/5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
