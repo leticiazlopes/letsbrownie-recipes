@@ -1,0 +1,84 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "name": "Bolo de Chocolate",
+      "ingredients": [
+        "Farinha",
+        "Ovos",
+        "Chocolate"
+      ],
+      "instructions": [
+        "Misture tudo",
+        "Asse por 40 minutos"
+      ],
+      "image": "/imgs/brownies_tradicional.jpg",
+      "cookTimeMinutes": 40,
+      "caloriesPerServing": 300,
+      "rating": 4.8,
+      "reviewCount": 24,
+      "comments": [
+        {
+          "id": 1,
+          "text": "Receita deliciosa!"
+        },
+        {
+          "id": 2,
+          "text": "Adorei a facilidade de preparo."
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Panqueca",
+      "ingredients": [
+        "Farinha",
+        "Leite",
+        "Ovos"
+      ],
+      "instructions": [
+        "Misture",
+        "Frite na frigideira"
+      ],
+      "image": "/imgs/brownies_tradicional.jpg",
+      "cookTimeMinutes": 15,
+      "caloriesPerServing": 150,
+      "rating": 4.5,
+      "reviewCount": 12,
+      "comments": [
+        {
+          "id": 1,
+          "text": "AaAaAa"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Brownie Clássico",
+      "ingredients": [
+        "Chocolate Amargo",
+        "Manteiga",
+        "Açúcar",
+        "Ovos",
+        "Farinha"
+      ],
+      "instructions": [
+        "Derreta o chocolate com a manteiga.",
+        "Misture o açúcar e os ovos.",
+        "Adicione a farinha.",
+        "Asse por 25 minutos a 180°C."
+      ],
+      "image": "/imgs/brownies_tradicional.jpg",
+      "cookTimeMinutes": 25,
+      "caloriesPerServing": 450,
+      "rating": 4.9,
+      "reviewCount": 50,
+      "comments": [
+        {
+          "id": 1,
+          "text": "O melhor brownie que já fiz!"
+        }
+      ]
+    }
+  ]
+}
