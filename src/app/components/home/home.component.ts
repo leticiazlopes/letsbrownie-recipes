@@ -1,7 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import data from '../../../../public/assets/data.json';
+//import { ActivatedRoute } from '@angular/router';
 import { CardComponent } from '../card/card.component';
+import { RecipeService } from '../../services/recipe.service';
+import { catchError, of } from 'rxjs'; 
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,18 @@ import { CardComponent } from '../card/card.component';
 export class HomeComponent implements OnInit {
   recipes = signal<any[]>([]);
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {
-    this.recipes.set(data);
+    // Buscando as receitas ou tratando possíveis erros
+    this.recipeService.getAllRecipes().pipe( 
+      catchError(error => {
+        console.error('Erro ao buscar receitas:', error);
+        return of([]);
+      })
+    ).subscribe(data => {
+      // atualizando o signal
+      this.recipes.set(data);
+    });
   }
 }
