@@ -12,7 +12,7 @@
         "Misture tudo",
         "Asse por 40 minutos"
       ],
-      "image": "/imgs/brownies_tradicional.jpg",
+      "image": "/imgs/bolo_de_chocolate.png",
       "cookTimeMinutes": 40,
       "caloriesPerServing": 300,
       "rating": 4.8,
@@ -40,7 +40,7 @@
         "Misture",
         "Frite na frigideira"
       ],
-      "image": "/imgs/brownies_tradicional.jpg",
+      "image": "/imgs/panquecas.png",
       "cookTimeMinutes": 15,
       "caloriesPerServing": 150,
       "rating": 4.5,
@@ -68,7 +68,7 @@
         "Adicione a farinha.",
         "Asse por 25 minutos a 180°C."
       ],
-      "image": "/imgs/brownies_tradicional.jpg",
+      "image": "/imgs/brownie.png",
       "cookTimeMinutes": 25,
       "caloriesPerServing": 450,
       "rating": 4.9,

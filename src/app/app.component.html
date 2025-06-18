@@ -1,12 +1,29 @@
 <main>
-  <nav class="relative z-50 flex items-center w-full px-20 py-4 bg-white shadow">
+  <nav id='nav' class="relative z-50 flex items-center w-full px-20 py-4 bg-white shadow">
     <a routerLink="/" class="flex items-center gap-2">
       <img width="80" src="/logo.png" alt="Logo" />
-      <span class="text-xl font-bold hover:underline">Let's Recipe</span>
+      <span class="text-xl font-bold hover:underline">Let's Recipes</span>
     </a>
     <div class="px-10 flex items-center gap-6 ml-auto text-xl capitalize">
       <a routerLink="/" class="font-bold hover:underline">Home</a>
+      <a href="#recipes" class="font-bold hover:underline">Receitas</a>
+
       </div>
   </nav>
 <router-outlet></router-outlet>
+<footer class="bg-[#c3a4f4] text-white py-8">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="text-center md:text-left">
+      <h3 class="text-xl font-bold mb-2">Let's Recipes</h3>
+      <p class="text-sm">© 2025 Let's Brownie. Todos os direitos reservados.</p>
+    </div>
+
+    <nav class="flex gap-6 text-sm">
+      <a href="#nav" class="hover:text-black/70 transition-colors">Home</a>
+      <a href="#recipes" class="hover:text-black/70 transition-colors">Receitas</a>
+    </nav>
+  </div>
+</footer>
+
+
 </main>

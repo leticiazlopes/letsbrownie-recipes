@@ -8,9 +8,9 @@
         <p class="text-xl lg:text-2xl mb-8 text-balance">
           Descubra as receitas da sua doceria favorita.
         </p>
-        <button id="button" class="px-4 py-2 text-white self-start bg-black rounded-md text-lg cursor-pointer">
+        <a id="button" href="#recipes" class="px-4 py-2 text-white self-start bg-black rounded-md text-lg cursor-pointer">
           Buscar receitas
-        </button>
+        </a>
       </div>
       <div class="flex-1 order-1 lg:order-2">
         <img src="/imgs/brownies_tradicional.jpg" class="w-full max-w-md mx-auto rounded-lg object-cover" />
@@ -19,7 +19,7 @@
   </section>
 
 <section id="recipes" class="py-20 px-4 max-w-7xl mx-auto">
-  <h2 class="text-3xl lg:text-5xl mb-2">Descubra, crie e compartilhe.</h2>
+  <h2 id="#teste" class="text-3xl lg:text-5xl mb-2 font-extrabold">Descubra, crie e compartilhe.</h2>
   <p class="text-lg lg:text-xl mb-8">Conheça nossas melhores receitas!</p>
   <app-card [recipes]="recipes()"></app-card>
 </section>
