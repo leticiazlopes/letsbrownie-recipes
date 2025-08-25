@@ -6,7 +6,7 @@ import { Observable, switchMap } from 'rxjs';
   providedIn: 'root'
 })
 export class RecipeService {
-  private apiUrl = 'http://localhost:3000/recipes';
+  private apiUrl = 'http://localhost:8080/api/recipes';
 
   constructor(private http: HttpClient) { }
 
@@ -20,21 +20,18 @@ export class RecipeService {
     return this.http.get<any>(`${this.apiUrl}/${id}`)
   }
 
-  // POST deu errado. Fiz com PUT
-  addComment(recipeId: number, comment: { text: string }): Observable<any> {
-    // buscando receita atual
-    return this.http.get<any>(`${this.apiUrl}/${recipeId}`).pipe(
-      switchMap(existingRecipe => {
-        if (!existingRecipe.comments) {
-          existingRecipe.comments = [];
-        }
-        // gerando um id de forma simples pro novo comentario
-        const newCommentId = existingRecipe.comments.length > 0 ? Math.max(...existingRecipe.comments.map((c: any) => c.id)) + 1 : 1;
-        existingRecipe.comments.push({ id: newCommentId, ...comment });
+    getComments(recipeId: number | null): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${recipeId}/comments`);
+  }
 
-        // Atualizando a receita -> agora ela possuirá o novo comentário
-        return this.http.put<any>(`${this.apiUrl}/${recipeId}`, existingRecipe);
-      })
-    );
+  // POST
+  addComment(recipeId: number, commentText: string): Observable<any> {
+    const comment = { text: commentText };
+    return this.http.post<any>(`${this.apiUrl}/${recipeId}/comments`, comment);
+  }
+
+  // DELETE
+  deleteComment(recipeId: number, commentId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${recipeId}/comments/${commentId}`);
   }
 }

@@ -1,7 +1,7 @@
 <div id="all" class="flex flex-col max-w-screen-lg container py-20 mx-auto" *ngIf="recipe(); else loading">
   <div class="flex flex-col mb-10">
-    <h2 class="text-5xl font-extrabold mb-4 ">{{ recipe().name }}</h2>
-    <div class="flex flex-wrap gap-6 text-lg mb-6">
+    <h2 class="text-5xl font-extrabold mb-4 text-gray-900 dark:text-gray-100">{{ recipe().name }}</h2>
+    <div class="flex flex-wrap gap-6 text-lg text-gray-700 dark:text-gray-300 mb-6">
       <div class="flex items-center gap-2">
         <img src="/icons/clock.svg" alt="Tempo" class="w-5 h-5" />
         <span>{{ recipe().cookTimeMinutes }} mins</span>
@@ -25,7 +25,7 @@
   />
 
   <div class="mb-12">
-    <h2 class="text-3xl font-semibold mb-6">Ingredientes</h2>
+    <h2 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-gray-100">Ingredientes</h2>
     <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
       <li *ngFor="let ingredient of recipe().ingredients; let i = index">
         <label
@@ -44,7 +44,7 @@
   </div>
 
   <div>
-    <h2 class="text-3xl font-semibold mb-6">Instruções</h2>
+    <h2 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-gray-100">Instruções</h2>
     <ul class="flex flex-col text-lg gap-6">
       <li *ngFor="let instruction of recipe().instructions; let idx = index" class="flex gap-5">
         <div
@@ -57,39 +57,33 @@
     </ul>
   </div>
 
-  <div class="mt-12">
-    <h2 class="text-3xl font-semibold mb-6">Comentários</h2>
-    <div *ngIf="recipe().comments && recipe().comments.length > 0; else noComments">
-      <ul class="flex flex-col gap-4">
-        <li *ngFor="let comment of recipe().comments" class="bg-gray-100 p-4 rounded-lg shadow-sm">
-          <p class="text-gray-800">{{ comment.text }}</p>
-        </li>
-      </ul>
+  <div id="comments" class="mb-12">
+    <h2 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-gray-100">Comentários</h2>
+    <div class="mb-6">
+      <form (ngSubmit)="addComment()" class="flex gap-4">
+        <input [(ngModel)]="newCommentText" name="newComment" type="text" placeholder="Adicione um comentário..."
+          class="flex-1 p-3 rounded-lg border border-[#c3a4f4] focus:outline-none focus:ring-2 focus:ring-[#c3a4f4]/50" />
+        <button type="submit"
+          class="px-6 py-3 text-white bg-[#c3a4f4] rounded-lg font-semibold hover:bg-[#a88ce0] transition-colors">
+          Comentar
+        </button>
+      </form>
     </div>
-    <ng-template #noComments>
-      <p class="text-gray-600 italic">Ainda não há comentários nesta receita. Seja o primeiro(a)!</p>
-    </ng-template>
 
-    <form [formGroup]="commentForm" (ngSubmit)="onSubmitComment()" class="mt-8 p-6 bg-white rounded-lg shadow">
-      <h3 class="text-2xl font-semibold mb-4 text-gray-900">Adicionar um Comentário</h3>
-      <div class="mb-4">
-        <label for="commentText" class="block text-gray-700 text-sm font-bold mb-2">Seu Comentário:</label>
-        <textarea
-          id="commentText"
-          formControlName="commentText"
-          rows="4"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none"
-          placeholder="Escreva seu comentário aqui..."
-        ></textarea>
-      </div>
-      <button
-        type="submit"
-        class="bg-[#c3a4f4] hover:bg-[#a88ce0] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        [disabled]="commentForm.invalid"
-      >
-        Enviar Comentário
-      </button>
-    </form>
+    <ul class="flex flex-col gap-4">
+      <li *ngFor="let comment of comments()">
+        <div class="flex items-center justify-between p-4 bg-gray-100 rounded-lg shadow-sm">
+          <p class="text-gray-800">{{ comment.text }}</p>
+          <button (click)="deleteComment(comment.id)"
+            class="text-red-500 hover:text-red-700 transition-colors">
+            Deletar
+          </button>
+        </div>
+      </li>
+      <li *ngIf="comments().length === 0">
+        <p class="text-center text-lg italic text-gray-500">Nenhum comentário ainda. Seja o primeiro!</p>
+      </li>
+    </ul>
   </div>
 </div>
 
